@@ -1,0 +1,147 @@
+import { MapPin, Search, ShoppingCart } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+
+export default function ReloomFurnitureMarketplace() {
+  return (
+    <div className="flex flex-col min-h-screen bg-[#F5F5DC]">
+      <header className="sticky top-0 z-50 w-full border-b border-[#8B4513] bg-[#F5F5DC]">
+        <div className="container flex h-16 items-center justify-between">
+          <Link className="flex items-center space-x-2" href="#">
+            <MapPin className="h-6 w-6 text-[#8B4513]" />
+            <span className="text-2xl font-bold text-[#8B4513]">Reloom</span>
+          </Link>
+          <nav className="flex items-center space-x-4 text-sm font-medium text-[#8B4513]">
+            <Link href="#">Home</Link>
+            <Link href="#">Makers</Link>
+            <Link href="#">Products</Link>
+            <Link href="#">About</Link>
+            <ShoppingCart className="h-6 w-6" />
+          </nav>
+        </div>
+      </header>
+      <main className="flex-1">
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <h1 className="text-3xl font-bold tracking-tighter text-[#8B4513] sm:text-4xl md:text-5xl lg:text-6xl">
+                Discover Unique Local Furniture
+              </h1>
+              <p className="mx-auto max-w-[700px] text-[#8B4513] md:text-xl">
+                Connect with talented local furniture makers and find the perfect pieces for your home.
+              </p>
+              <div className="w-full max-w-sm space-y-2">
+                <form className="flex space-x-2">
+                  <Input className="flex-1" placeholder="Search for furniture or makers" type="search" />
+                  <Button className="bg-[#8B4513] text-white" type="submit">
+                    <Search className="h-4 w-4" />
+                    <span className="sr-only">Search</span>
+                  </Button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#DEB887]">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter text-[#8B4513] sm:text-4xl md:text-5xl lg:text-6xl mb-8">
+              Find Local Makers Near You
+            </h2>
+            <div className="aspect-[2/1] overflow-hidden rounded-lg">
+              <Image
+                alt="Map of local furniture makers"
+                className="object-cover"
+                height={600}
+                src="/placeholder.svg"
+                width={1200}
+              />
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter text-[#8B4513] sm:text-4xl md:text-5xl lg:text-6xl mb-8">
+              Featured Makers
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3].map((maker) => (
+                <Card key={maker} className="bg-[#F5F5DC] border-[#8B4513]">
+                  <CardHeader>
+                    <CardTitle className="text-[#8B4513]">Furniture Maker {maker}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Image
+                      alt={`Furniture Maker ${maker}`}
+                      className="w-full h-48 object-cover rounded-md"
+                      height={200}
+                      src="/placeholder.svg"
+                      width={300}
+                    />
+                    <p className="mt-2 text-[#8B4513]">Specializing in handcrafted wooden furniture.</p>
+                  </CardContent>
+                  <CardFooter>
+                    <Button className="w-full bg-[#8B4513] text-white">View Profile</Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-[#DEB887]">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter text-[#8B4513] sm:text-4xl md:text-5xl lg:text-6xl mb-8">
+              Featured Products
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4, 5, 6].map((product) => (
+                <Card key={product} className="bg-[#F5F5DC] border-[#8B4513]">
+                  <CardHeader>
+                    <CardTitle className="text-[#8B4513]">Handcrafted Product {product}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Image
+                      alt={`Product ${product}`}
+                      className="w-full h-48 object-cover rounded-md"
+                      height={200}
+                      src="/placeholder.svg"
+                      width={300}
+                    />
+                    <p className="mt-2 text-[#8B4513]">A unique piece of furniture for your home.</p>
+                    <p className="mt-2 font-bold text-[#8B4513]">$299.99</p>
+                  </CardContent>
+                  <CardFooter>
+                    <Button className="w-full bg-[#8B4513] text-white">Add to Cart</Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer className="w-full border-t border-[#8B4513] bg-[#F5F5DC] py-6">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-center text-sm text-[#8B4513]">
+              © 2023 Reloom. All rights reserved.
+            </p>
+            <div className="flex items-center space-x-4">
+              <Link className="text-[#8B4513] hover:underline" href="#">
+                Terms of Service
+              </Link>
+              <Link className="text-[#8B4513] hover:underline" href="#">
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
+          <div className="mt-4 text-center text-sm text-[#8B4513]">
+            Flexible payment options available. Contact us for more information.
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
